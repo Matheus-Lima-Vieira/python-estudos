@@ -1,0 +1,23 @@
+Criar um programa que:
+
+Pergunte um CEP ao usuário.
+Consulte uma API pública.
+Mostre os dados do endereço.
+
+Exemplo:
+
+Digite um CEP: 01001000
+
+=================
+RESULTADO
+=================
+
+CEP: 01001-000
+Logradouro: Praça da Sé
+Bairro: Sé
+Cidade: São Paulo
+Estado: SP
+
+
+Pesquisar por   python requests get
+                python response json

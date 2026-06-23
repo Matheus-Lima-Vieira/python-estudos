@@ -1,0 +1,30 @@
+Projeto 01 - Controle de Gastos (Versão Júnior)
+
+Agora não vou mais dizer exatamente quais funções usar.
+
+Você terá que pensar na lógica.
+
+Requisitos
+
+O programa deve:
+
+Perguntar o salário.
+Perguntar quantos gastos deseja cadastrar.
+Solicitar os gastos um por um.
+Armazenar todos em uma lista.
+Somar os valores.
+
+Mostrar:
+====================
+RESUMO
+====================
+
+Salário: R$ 3000
+
+Internet: R$ 100
+TIM: R$ 60
+Aluguel: R$ 1200
+
+Total gastos: R$ 1360
+
+Saldo restante: R$ 1640
