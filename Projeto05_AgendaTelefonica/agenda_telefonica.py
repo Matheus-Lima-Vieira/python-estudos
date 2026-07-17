@@ -21,12 +21,12 @@ while True:
     if selecao == "1":
         while True:
             print("====Agenda====")
-            nome1 = input(f"Insira o nome do contato\n").strip().title()
+            nome1 = input("Insira o nome do contato\n").strip().title()
             nome2 = re.sub(r'[^a-zA-Zá-úÁ-Ú]', ' ', nome1).strip()
             #.title() metodo para a primeira letra de todas as palavras seja maiuscula e as demais minusculas
             #.capitalize() metodo para que a primeira letra seja maiuscula e as demais minusculas
             #re.sub para validar se o nome contem somente letras
-            ddd1 = (input(f"Insira o DDD\n"))
+            ddd1 = (input("Insira o DDD\n"))
             ddd2 = re.sub('[^0-9]', '', ddd1)
             #re.sub para tirar digitos que nao sejam numeros
             #ddd = re.sub('[^0-9]', '', input("Insira o DDD\n")) FORMA MAIS LIMPA DE USAR
@@ -37,7 +37,7 @@ while True:
                 #numero = re.sub('[^0-9]', '', input("Insira o telefone\n")) FORMA MAIS LIMPA DE USAR
                 if len(numero2) == 9 and numero2.isdigit():
                     numero_formatado = f"{numero2[0:5]}-{numero2[5:9]}"
-                    email = input(f"Insira o e-mail\n").strip().lower()
+                    email = input("Insira o e-mail\n").strip().lower()
                     if "@" in email and "." in email:
                         lista.append([nome2, ddd2, numero_formatado, email])
                         opcao = input("Deseja adicionar mais um contato? Sim / Não\n").strip().lower()
@@ -62,12 +62,12 @@ while True:
                       (f"E-mail: {agenda[3]}\n"))
     elif selecao == "3":
         print("====Agenda====")
-        busca = input(f"Qual o nome do contato que deseja buscar?\n").strip().title()
+        busca = input("Qual o nome do contato que deseja buscar?\n").strip().title()
         busca_contato = False
         for agenda in lista:
             if busca == agenda[0]:
                 busca_contato = True
-                print((f"\nContato encontrado!\n") + 
+                print(("\nContato encontrado!\n") + 
                     (f"Nome: {agenda[0]}\n") + 
                     (f"Telefone: ({agenda[1]})") + (f"{agenda[2]}\n") + 
                     (f"E-mail: {agenda[3]}\n"))
@@ -76,7 +76,7 @@ while True:
                 print("Contato não encontrado")
     elif selecao == "4":
         print("====Agenda====")
-        remocao = input(f"Qual contato deseja apagar?\n").strip().title()
+        remocao = input("Qual contato deseja apagar?\n").strip().title()
         remove_contato = False
         for agenda in lista:
             if remocao == agenda[0]:

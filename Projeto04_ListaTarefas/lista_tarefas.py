@@ -15,7 +15,7 @@ while True:
         while True:
             tarefa = input("Qual a tarefa que deseja adicionar?\n")
             lista.append(tarefa)
-            opcao = input(f"====Deseja adicionar mais uma tarefa? Sim / Não====\n").strip().lower()
+            opcao = input("====Deseja adicionar mais uma tarefa? Sim / Não====\n").strip().lower()
             if opcao != "sim":
                 break
     elif selecao == "2":
