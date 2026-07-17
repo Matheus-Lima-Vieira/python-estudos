@@ -1,16 +1,8 @@
 import re
-'''
-1 - Adicionar produto
-2 - Listar produtos
-3 - Buscar produto
-4 - Atualizar quantidade
-5 - Remover produto
-6 - Sair
-'''
-#Lista para testes
 
+#Lista para testes
 lista = [
-    ["Mouse", 10, 89.90],
+    ["Mouse", 10, 89.90,],
     ["Teclado", 5, 199.90],
     ["Monitor", 3, 899.90]
 ]
@@ -35,58 +27,81 @@ while True:
             opcao = input("Deseja adicionar mais um produto? Sim / Não\n").strip().lower()
             if opcao != "sim":
                 break
+#==================================================================
     elif selecao == "2":
         print("==== ESTOQUE ====")
         if not lista:
             print("Nenhum produto cadastrado")
         else:
+            valor_total = 0
             for estoque in lista:
-                #print(lista)
-                print((f"Item: {estoque[0]}\n") + 
-                      (f"Quantidade: {estoque[1]} \n") +  
-                      (f"Preço: {estoque[2]}\n"))
+                valor_item = estoque[1] * estoque[2]
+                print((f"Item: {estoque[0]}\n") +
+                      (f"Quantidade: {estoque[1]:.0f} \n") +
+                      (f"Preço R$: {estoque[2]:.2f}\n") +
+                      (f"Valor total em estoque: R${valor_item:.2f}\n"))
+                valor_total += valor_item
+        
+        print(f"\nValor total do estoque R$:{valor_total:.2f}\n")
+#==================================================================
     elif selecao == "3":
         print("==== ESTOQUE ====")
         busca = input("Qual produto deseja procurar? \n").strip().title()
         busca_produto = False
         for produto in lista:
-            if busca == {produto[0]}:
+            if busca == produto[0]:
                 busca_produto = True
-                print(("\n Produto encontrado! \n") +
-                     (f"Produto: {produto[0]}") +
-                     (f"Quantidade: {produto[1]}") +
-                     (f"Preço: {produto[2]}"))
+                print(("\nProduto encontrado! \n") +
+                     (f"Produto: {produto[0]}\n") +
+                     (f"Quantidade: {produto[1]:.0f}\n") +
+                     (f"Preço: {produto[2]:.2f}") +
+                     (f"Valor total em estoque: R${valor_item:.2f}\n"))
                 break
-        if not busca:
+        if not busca_produto:
             print("Produto não encontrado!")
+#==================================================================
     elif selecao == "4":
         print("==== ESTOQUE ====")
-        print("Qual produto deseja alterar?\n")
+        print("Qual produto deseja alterar?")
         for produto in lista:
             print(f"Nome: {produto[0]}")
-        alterar = input().strip().title()
-        #Aqui vai buscar o produto digitado
+        alterar = input("Digite aqui: ").strip().title()
         busca_produto = False
         for produto in lista:
             if alterar == produto[0]:
                 busca_produto = True
-                break
-        if not busca_produto:
-            print("Produto não encontrado!")
-        #Novo submenu
-        subselecao = input(("O que deseja alterar?\n") +
+                print("Item encontrado!")
+                #Novo submenu
+                subselecao = input(("O que deseja alterar?\n") +
                            ("1 - Alterar o nome\n") +
                            ("2 - Alterar a quantidade\n") +
                            ("3 - Alterar preço\n"))
-        if subselecao == "1":
-            print("==== ESTOQUE ====")
-            subnome = input("Qual o novo nome do produto?\n")
-        #Aqui vai pegar o nome buscado na lista e alterar
-        elif subselecao == "2":
-            print("==== ESTOQUE ====")
-            subquantidade = input("Qual a nova quantidade?\n")
-        #Aqui vai pegar a quantidade produto buscado na lista e alterar
-        elif subselecao =="3":
-            print("==== ESTOQUE ====")
-            subpreco = input("Qual o novo preço?\n")
-            #Aqui vai pegar preco do produto buscado na lista e alterar
+                if subselecao == "1":
+                    produto[0] = input("Qual o novo nome do produto?\n").strip().title()
+                    print("Dados alterados com sucesso")
+                elif subselecao == "2":
+                    produto[1] = int(input("Qual a nova quantidade do produto?\n"))
+                    print("Dados alterados com sucesso")
+                elif subselecao == "3":
+                    produto[2] = float(input("Qual o novo valor do produto?\n"))
+                    print("Dados alterados com sucesso")
+#==================================================================
+    elif selecao == "5":
+                print("==== ESTOQUE ====")
+                print("Qual produto deseja excluir?")
+                for produto in lista:
+                    print(f"Nome: {produto[0]}")
+                excluir = input("Digite aqui: ").strip().title()
+                busca_produto = False
+                for produto in lista:
+                    if excluir == produto[0]:
+                        busca_produto = True
+                        lista.remove(produto)
+                        print(f"Item ({excluir}) removido do estoque!\n")
+                        break
+                if not busca_produto:
+                    print("Produto não encontrado!")
+#==================================================================
+    elif selecao =="6":
+        print("\nEncerrando o sistema")
+        break
